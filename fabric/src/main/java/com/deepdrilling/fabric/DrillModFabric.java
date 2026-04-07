@@ -8,8 +8,8 @@ import com.deepdrilling.nodes.OreNodes;
 import com.deepdrilling.worldgen.fabric.OreNodeStructureImpl;
 import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.item.KineticStats;
-import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.item.TooltipModifier;
+import net.createmod.catnip.lang.FontHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
@@ -21,7 +21,7 @@ import net.minecraft.server.packs.resources.ResourceManager;
 public class DrillModFabric implements ModInitializer {
     @Override
     public void onInitialize() {
-        DrillMod.REGISTRATE.setTooltipModifierFactory(item -> new ItemDescription.Modifier(item, TooltipHelper.Palette.STANDARD_CREATE)
+        DrillMod.REGISTRATE.setTooltipModifierFactory(item -> new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
                 .andThen(TooltipModifier.mapNull(KineticStats.create(item)))
                 .andThen(TooltipModifier.mapNull(DrillHeadTooltips.create(item)))
         );

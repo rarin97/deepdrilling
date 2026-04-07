@@ -1,8 +1,6 @@
 package com.deepdrilling.fabric.datagen;
 
 import com.deepdrilling.DBlocks;
-import com.deepdrilling.DrillMod;
-import com.simibubi.create.foundation.ponder.PonderLocalization;
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.minecraft.world.level.ItemLike;
@@ -14,15 +12,23 @@ public class LangStuff {
     public static void register(RegistrateLangProvider provider) {
         langConsumer = provider::add;
 
-        PonderLocalization.generateSceneLang();
-        PonderLocalization.provideLang(DrillMod.MOD_ID, langConsumer);
-
         langConsumer.accept("create.deepdrilling.recipe.ore_node", "Ore Node Drilling");
         langConsumer.accept("deepdrilling.loot.earth", "Earth");
         langConsumer.accept("deepdrilling.loot.common", "Common");
         langConsumer.accept("deepdrilling.loot.rare", "Rare");
 
         langConsumer.accept("deepdrilling.goggle.sludge_pump.backed_up", "Backed up");
+
+        langConsumer.accept("deepdrilling.ponder.drill_basics.header","Using Deep Drills");
+        langConsumer.accept("deepdrilling.ponder.drill_basics.text_1","When given a drill head and Rotational Force, a Deep Drill will begin extracting resources from Ore Nodes");
+        langConsumer.accept("deepdrilling.ponder.drill_basics.text_2","The process can be sped up with better Drill Heads...");
+        langConsumer.accept("deepdrilling.ponder.drill_basics.text_3","... or increasing its Rotational Input");
+        langConsumer.accept("deepdrilling.ponder.drill_modules.header","Using Modules");
+        langConsumer.accept("deepdrilling.ponder.drill_modules.text_1","The behaviour and properties of drills can be modified by attaching Modules");
+        langConsumer.accept("deepdrilling.ponder.drill_modules.text_2","Up to 5 Modules can be attached at once");
+        langConsumer.accept("deepdrilling.ponder.drill_modules.text_3","Any Module after a gap is ignored");
+        langConsumer.accept("deepdrilling.ponder.tag.drilling","Deep Drilling");
+        langConsumer.accept("deepdrilling.ponder.tag.drilling.description","Components related to extracting resources from deep within the earth");
 
         summary(DBlocks.BLANK_MODULE, "A _Module_ to be attached to a _Drill Core_.");
         conditionBehaviour(DBlocks.BLANK_MODULE, 1, "When attached to Drill Core", "Does _nothing_... but still _connects other Modules_.");

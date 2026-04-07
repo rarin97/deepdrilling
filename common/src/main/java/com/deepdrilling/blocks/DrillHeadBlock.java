@@ -5,13 +5,13 @@ import com.deepdrilling.DrillMod;
 import com.deepdrilling.blockentities.drillhead.DDrillHeads;
 import com.deepdrilling.blockentities.drillhead.DrillHeadBE;
 import com.simibubi.create.AllShapes;
-import com.simibubi.create.CreateClient;
 import com.simibubi.create.content.kinetics.base.DirectionalKineticBlock;
 import com.simibubi.create.foundation.block.IBE;
-import com.simibubi.create.foundation.placement.IPlacementHelper;
-import com.simibubi.create.foundation.placement.PlacementHelpers;
-import com.simibubi.create.foundation.placement.PlacementOffset;
-import com.simibubi.create.foundation.utility.VoxelShaper;
+import net.createmod.catnip.ghostblock.GhostBlocks;
+import net.createmod.catnip.math.VoxelShaper;
+import net.createmod.catnip.placement.IPlacementHelper;
+import net.createmod.catnip.placement.PlacementHelpers;
+import net.createmod.catnip.placement.PlacementOffset;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -151,11 +151,11 @@ public class DrillHeadBlock extends DirectionalKineticBlock implements IBE<Drill
             return PlacementOffset.fail();
         }
 
-        @Override
-        public void renderAt(BlockPos pos, BlockState state, BlockHitResult ray, PlacementOffset offset) {
+        public void displayGhost(PlacementOffset offset) {
             if (!offset.hasGhostState())
                 return;
-            CreateClient.GHOST_BLOCKS.showGhostState(this, offset.getTransform().apply(offset.getGhostState()))
+
+            GhostBlocks.getInstance().showGhostState(this, offset.getTransform().apply(offset.getGhostState()))
                     .at(offset.getBlockPos())
                     .breathingAlpha();
         }

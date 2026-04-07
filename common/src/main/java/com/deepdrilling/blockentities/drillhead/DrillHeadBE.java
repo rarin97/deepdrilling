@@ -6,8 +6,8 @@ import com.deepdrilling.blockentities.module.Modifier;
 import com.deepdrilling.blockentities.module.ModifierTypes;
 import com.deepdrilling.blocks.DrillHeadBlock;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
-import com.simibubi.create.foundation.utility.Lang;
-import com.simibubi.create.foundation.utility.LangNumberFormat;
+import com.simibubi.create.foundation.utility.CreateLang;
+import net.createmod.catnip.lang.LangNumberFormat;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -143,7 +143,7 @@ public class DrillHeadBE extends KineticBlockEntity {
         super.addToGoggleTooltip(tooltip, isPlayerSneaking);
 
         if (!unbreakable) {
-            Lang.text("Head Durability:").style(ChatFormatting.GRAY).forGoggles(tooltip);
+            CreateLang.text("Head Durability:").style(ChatFormatting.GRAY).forGoggles(tooltip);
             double fractDamage = damage / getMaxDamage();
             ChatFormatting formatting;
             if (fractDamage < 0.25) {
@@ -155,10 +155,10 @@ public class DrillHeadBE extends KineticBlockEntity {
             } else {
                 formatting = ChatFormatting.RED;
             }
-            Lang.builder().space()
+            CreateLang.builder().space()
                     .text(LangNumberFormat.format((int) (getMaxDamage() - damage)))
                     .style(formatting)
-                    .add(Lang.text(String.format(" / %s", (int) getMaxDamage()))
+                    .add(CreateLang.text(String.format(" / %s", (int) getMaxDamage()))
                             .style(ChatFormatting.DARK_GRAY))
                     .forGoggles(tooltip);
         }

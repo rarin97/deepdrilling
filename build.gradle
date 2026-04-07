@@ -1,6 +1,6 @@
 plugins {
     id "architectury-plugin" version "3.4-SNAPSHOT"
-    id "dev.architectury.loom" version "1.6-SNAPSHOT" apply false
+    id "dev.architectury.loom" version "1.10-SNAPSHOT" apply false
 //    id "io.github.juuxel.loom-vineflower" version "1.+" apply false // Vineflower, a better better decompiler
     id "io.github.p03w.machete" version "1.+" // automatic jar compressing on build
 }
@@ -24,25 +24,16 @@ subprojects {
         maven { url = "https://maven.parchmentmc.org" } // Parchment mappings
         maven { url = "https://maven.quiltmc.org/repository/release" } // Quilt Mappings
         maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // Forge Config API Port
-        maven { // Flywheel
-            url = "https://maven.tterrag.com/"
-            content {
-                // need to be specific here due to version overlaps
-                includeGroup("com.jozufozu.flywheel")
-            }
-        }
+        maven { url = "https://maven.tterrag.com/"}
     }
 
     dependencies {
         minecraft "com.mojang:minecraft:${minecraft_version}"
-        // layered mappings - Mojmap names, parchment and QM docs and parameters
-        mappings(loom.layered {
-            it.mappings("org.quiltmc:quilt-mappings:${minecraft_version}+build.${qm_version}:intermediary-v2")
-            it.parchment("org.parchmentmc.data:parchment-${minecraft_version}:${parchment_version}@zip")
-            it.officialMojangMappings { nameSyntheticMembers = false }
-        })
-
-        // see each subproject for dependencies.
+        mappings loom.layered() {
+            officialMojangMappings()
+            parchment("org.parchmentmc.data:parchment-${minecraft_version}:${parchment_version}@zip")
+        }
+        compileOnly 'com.google.code.findbugs:jsr305:3.0.2' // for nullability annotations
     }
 }
 

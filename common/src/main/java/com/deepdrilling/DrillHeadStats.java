@@ -1,7 +1,7 @@
 package com.deepdrilling;
 
 import com.deepdrilling.nodes.OreNode;
-import com.simibubi.create.foundation.utility.Lang;
+import com.simibubi.create.foundation.utility.CreateLang;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
 import net.minecraft.network.chat.Component;
@@ -119,7 +119,7 @@ public class DrillHeadStats {
         }
 
         private static void addCollectionModifier(List<Component> list, double mod, boolean goggles, String name) {
-            Lang.builder().add(DrillHeadTooltips.makeProbabilityMultiplier(mod, goggles, name)).addTo(list);
+            CreateLang.builder().add(DrillHeadTooltips.makeProbabilityMultiplier(mod, goggles, name)).addTo(list);
         }
     }
 }

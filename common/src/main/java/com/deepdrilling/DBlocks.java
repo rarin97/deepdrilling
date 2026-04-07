@@ -3,7 +3,7 @@ package com.deepdrilling;
 import com.deepdrilling.blocks.*;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
-import com.simibubi.create.content.kinetics.BlockStressDefaults;
+import com.simibubi.create.api.stress.BlockStressValues;
 import com.simibubi.create.foundation.data.ModelGen;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
@@ -29,9 +29,8 @@ public class DBlocks {
 			.properties(BlockBehaviour.Properties::noOcclusion)
 			.transform(axeOrPickaxe())
 			.lang("Drill Core")
-//			.blockstate((c, p) -> p.directionalBlock(c.get(), p.models().getExistingFile(p.modLoc("block/drill_core/block"))))
 			.blockstate((c, p) -> BlockstateHelper.existingFileFacing(c, p, "block/drill_core/block"))
-			.transform(BlockStressDefaults.setImpact(16))
+			.onRegister(block -> BlockStressValues.IMPACTS.register(block, () -> 16))
 			.item()
 			.recipe((c, p) -> ShapedRecipeBuilder.shaped(RecipeCategory.MISC, c.get(), 1)
 					.pattern("IHI")
@@ -67,7 +66,7 @@ public class DBlocks {
 			.transform(axeOrPickaxe())
 			.lang("Collection Filter")
 			.blockstate((c, p) -> BlockstateHelper.existingFilePillar(c, p, "block/collection_filter/block"))
-			.transform(BlockStressDefaults.setImpact(2))
+			.onRegister(block -> BlockStressValues.IMPACTS.register(block, () -> 2))
 			.item()
 			.recipe((c, p) -> ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, c.get(), 1)
 					.requires(BLANK_MODULE)
@@ -84,7 +83,7 @@ public class DBlocks {
 			.blockstate((c, p) -> BlockstateHelper.existingFilePillar(c, p, "block/drill_overclock/block"))
 			.properties(BlockBehaviour.Properties::noOcclusion)
 			.transform(pickaxeOnly())
-			.transform(BlockStressDefaults.setImpact(8))
+			.onRegister(block -> BlockStressValues.IMPACTS.register(block, () -> 8))
 			.item()
 			.recipe((c, p) -> ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, c.get(), 1)
 					.requires(BLANK_MODULE)
@@ -102,7 +101,7 @@ public class DBlocks {
 			.lang("Sludge Pump")
 			.blockstate((c, p) -> BlockstateHelper.existingFilePillar(c, p, "block/sludge_pump/block"))
 			.transform(axeOrPickaxe())
-			.transform(BlockStressDefaults.setImpact(4))
+			.onRegister(block -> BlockStressValues.IMPACTS.register(block, () -> 4))
 			.item()
 			.recipe((c, p) -> ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, c.get(), 1)
 					.requires(BLANK_MODULE)

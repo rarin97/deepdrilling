@@ -39,7 +39,9 @@ repositories {
     // mavens for Fabric-exclusives
     maven { url = "https://api.modrinth.com/maven" } // LazyDFU
     maven { url = "https://maven.terraformersmc.com/releases/" } // Mod Menu
-    maven { url = "https://mvn.devos.one/snapshots/" } // Create Fabric, Porting Lib, Forge Tags, Milk Lib, Registrate Fabric
+    maven { url = "https://maven.createmod.net/"} // Create Fabric, Porting Lib, Forge Tags, Milk Lib, Registrate Fabric
+    maven { url = "https://mvn.devos.one/snapshots/" }
+    maven { url = "https://mvn.devos.one/releases/" }
     maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // Forge Config API Port
     maven { url = "https://maven.cafeteria.dev/releases" } // Fake Player API
     maven { url = "https://maven.jamieswhiteshirt.com/libs-release" } // Reach Entity Attributes
@@ -57,7 +59,7 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:${fabric_api_version}")
 
     // Create - dependencies are added transitively
-    modImplementation("com.simibubi.create:create-fabric-${minecraft_version}:${create_fabric_version}")
+    modImplementation("com.simibubi.create:create-fabric:" + "${create_fabric_version}")
 
     // Development QOL
     modLocalRuntime("maven.modrinth:lazydfu:${lazydfu_version}")
@@ -82,13 +84,14 @@ dependencies {
 
 processResources {
     // set up properties for filling into metadata
-    Map<String, String> properties = Map.of(
-            "version", version,
-            "fabric_loader_version", fabric_loader_version,
-            "fabric_api_version", fabric_api_version,
-            "minecraft_version", minecraft_version,
-            "create_version", create_fabric_version // on fabric, use the entire version, unlike forge
-    )
+    Map<String, Object> properties = [
+            "version": version,
+            "fabric_loader_version": fabric_loader_version,
+            "fabric_api_version": fabric_api_version,
+            "minecraft_version": minecraft_version,
+            "create_fabric_version": create_fabric_version, // on fabric, use the entire version, unlike forge
+            "create_fabric_version_range": create_fabric_version_range
+    ]
     properties.forEach((k, v) -> inputs.property(k, v))
 
     from(project(":common").sourceSets.main.resources)

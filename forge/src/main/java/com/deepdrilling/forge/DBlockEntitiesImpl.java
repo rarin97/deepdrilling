@@ -1,27 +1,28 @@
-package com.deepdrilling;
+package com.deepdrilling.forge;
 
+import com.deepdrilling.DBlocks;
+import com.deepdrilling.DrillMod;
+import com.deepdrilling.FluidTankAssociations;
 import com.deepdrilling.blockentities.BlankModuleBE;
 import com.deepdrilling.blockentities.CollectorModuleBE;
 import com.deepdrilling.blockentities.drillcore.DrillCoreBE;
-import com.deepdrilling.blockentities.drillcore.DrillCoreVisual;
 import com.deepdrilling.blockentities.drillcore.DrillCoreRenderer;
-import com.deepdrilling.blockentities.drillhead.DDrillHeads;
+import com.deepdrilling.blockentities.drillcore.DrillCoreVisual;
 import com.deepdrilling.blockentities.overclock.OverclockModuleBE;
-import com.deepdrilling.blockentities.overclock.OverclockModuleVisual;
 import com.deepdrilling.blockentities.overclock.OverclockModuleRenderer;
+import com.deepdrilling.blockentities.overclock.OverclockModuleVisual;
 import com.deepdrilling.blockentities.sludgepump.SludgePumpModuleBE;
-import com.simibubi.create.content.kinetics.base.ShaftVisual;
 import com.simibubi.create.content.kinetics.base.ShaftRenderer;
+import com.simibubi.create.content.kinetics.base.ShaftVisual;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 
-public class DBlockEntities {
+public class DBlockEntitiesImpl {
     /**
-     for drill heads
+     I love working with forge!!!
+     how to get forge to work
+     do // on .visual to stop forge from using fabric flywheel
      @see com.deepdrilling.blockentities.drillhead.DDrillHeads
-
-     I Hate Forge!!!
-     @see com.deepdrilling.forge.DDrillHeadsImpl
-     @see com.deepdrilling.forge.DBlockEntitiesImpl
+     @see com.deepdrilling.DBlockEntities
      **/
     public static final BlockEntityEntry<DrillCoreBE> DRILL_CORE = DrillMod.REGISTRATE
             .blockEntity("deep_drill", DrillCoreBE::new)
@@ -59,8 +60,5 @@ public class DBlockEntities {
             .renderer(() -> ShaftRenderer::new)
             .register();
 
-    public static void init() {
-        DrillMod.LOGGER.info("Registering block entities for " + DrillMod.NAME);
-        DDrillHeads.init();
-    }
+    public static void register() {}
 }

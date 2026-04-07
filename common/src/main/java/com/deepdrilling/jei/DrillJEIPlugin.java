@@ -6,7 +6,7 @@ import com.deepdrilling.nodes.LootParser;
 import com.simibubi.create.compat.jei.EmptyBackground;
 import com.simibubi.create.compat.jei.ItemIcon;
 import com.simibubi.create.compat.jei.category.CreateRecipeCategory;
-import com.simibubi.create.foundation.utility.Lang;
+import com.simibubi.create.foundation.utility.CreateLang;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
@@ -28,7 +28,7 @@ public class DrillJEIPlugin implements IModPlugin {
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new OreNodeCategory(new CreateRecipeCategory.Info<>(
-                FakeOreNodeRecipe.RECIPE_TYPE, Lang.translate("deepdrilling.recipe.ore_node").component(), new EmptyBackground(177, 100),
+                FakeOreNodeRecipe.RECIPE_TYPE, CreateLang.translate("deepdrilling.recipe.ore_node").component(), new EmptyBackground(177, 100),
                 new ItemIcon(DDrillHeads.ANDESITE::asStack), ArrayList::new, List.of()
         )));
     }

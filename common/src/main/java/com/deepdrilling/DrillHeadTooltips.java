@@ -4,10 +4,9 @@ import com.deepdrilling.blockentities.drillhead.DDrillHeads;
 import com.simibubi.create.content.equipment.goggles.GogglesItem;
 import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.item.TooltipModifier;
-import com.simibubi.create.foundation.utility.Components;
-import com.simibubi.create.foundation.utility.Lang;
-import com.simibubi.create.foundation.utility.LangBuilder;
-import com.simibubi.create.foundation.utility.LangNumberFormat;
+import com.simibubi.create.foundation.utility.CreateLang;
+import net.createmod.catnip.lang.LangBuilder;
+import net.createmod.catnip.lang.LangNumberFormat;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -57,11 +56,11 @@ public class DrillHeadTooltips implements TooltipModifier {
     }
 
     public static LangBuilder makeProbabilityMultiplier(double factor, boolean numbers, String suffix) {
-        LangBuilder bar = Lang.builder().text(TooltipHelper.makeProgressBar(3, barLengthProbability(factor)));
+        LangBuilder bar = CreateLang.builder().text(TooltipHelper.makeProgressBar(3, barLengthProbability(factor)));
         if (numbers)
             bar.text(LangNumberFormat.format(factor) + "x ");
         if (!Objects.equals(suffix, ""))
-            bar.add(Components.translatable(suffix));
+            bar.add(Component.translatable(suffix));
         return bar.style(DrillHeadTooltips.mulColor(factor));
     }
 
@@ -116,10 +115,10 @@ public class DrillHeadTooltips implements TooltipModifier {
             }
         }
 
-        Lang.builder().add(Lang.text("Speed:").style(ChatFormatting.GRAY)).addTo(list);
-        Lang.builder().add(Lang.text(bar).style(speedColor(speed))).addTo(list);
+        CreateLang.builder().add(CreateLang.text("Speed:").style(ChatFormatting.GRAY)).addTo(list);
+        CreateLang.builder().add(CreateLang.text(bar).style(speedColor(speed))).addTo(list);
 
-        Lang.builder().add(Lang.text("Resource Odds:").style(ChatFormatting.GRAY)).addTo(list);
+        CreateLang.builder().add(CreateLang.text("Resource Odds:").style(ChatFormatting.GRAY)).addTo(list);
         DrillHeadStats.getLootWeightMultiplier(drillID).addTooltip(list, hasGoggles, true);
 
         return list;

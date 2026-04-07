@@ -12,7 +12,7 @@ import com.deepdrilling.nodes.OreNode;
 import com.deepdrilling.nodes.OreNodes;
 import com.simibubi.create.content.kinetics.base.BlockBreakingKineticBlockEntity;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
-import com.simibubi.create.foundation.utility.Lang;
+import com.simibubi.create.foundation.utility.CreateLang;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -223,11 +223,11 @@ public class DrillCoreBE extends KineticBlockEntity {
             val = true;
         }*/
         if (!modules.isEmpty() && isPlayerSneaking) {
-            Lang.text("Attached Modules:")
+            CreateLang.text("Attached Modules:")
                     .style(ChatFormatting.GRAY)
                     .forGoggles(tooltip);
             for (Module module : modules) {
-                Lang.builder().space()
+                CreateLang.builder().space()
                         .add(module.getName())
                         .style(ChatFormatting.GRAY)
                         .forGoggles(tooltip);

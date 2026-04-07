@@ -1,8 +1,9 @@
-package com.deepdrilling.blockentities.drillhead;
+package com.deepdrilling.forge;
 
 import com.deepdrilling.BlockstateHelper;
 import com.deepdrilling.DrillHeadStats;
 import com.deepdrilling.DrillMod;
+import com.deepdrilling.blockentities.drillhead.*;
 import com.deepdrilling.blocks.DrillHeadBlock;
 import com.simibubi.create.api.stress.BlockStressValues;
 import com.simibubi.create.foundation.data.CreateBlockEntityBuilder;
@@ -25,7 +26,7 @@ import java.util.List;
 
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 
-public class DDrillHeads {
+public class DDrillHeadsImpl {
     public static final List<BlockEntry<DrillHeadBlock>> knownDrillHeads = new ArrayList<>();
 
     // only this stuff should need to be touched
@@ -39,15 +40,13 @@ public class DDrillHeads {
                 200, 4, 0.5, 2, 0, 0);
     }
 
-    // cursed java below this line to make the stuff above the line all nice and clean looking :3
-    // nvm the stuff above is beginning to look a little less clean 3:
     public static void createCopyHeadDataDrop(RegistrateBlockLootTables tables, Block block) {
         tables.add(block, LootTable.lootTable().withPool(
                 (tables.applyExplosionCondition(block, LootPool.lootPool())).setRolls(ConstantValue.exactly(1)).add(
                         LootItem.lootTableItem(block).apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY)
-                                        .copy("Damage", "Damage")
-                                        .copy("Unbreakable", "Unbreakable")
-                                        .copy("Enchantments", "Enchantments")
+                                .copy("Damage", "Damage")
+                                .copy("Unbreakable", "Unbreakable")
+                                .copy("Enchantments", "Enchantments")
                         )))
         );
     }
@@ -78,9 +77,11 @@ public class DDrillHeads {
 
     public static void registerBlockEntity() {
         /**
-        #KillForge
-         @see com.deepdrilling.forge.DDrillHeadsImpl
-         @see com.deepdrilling.forge.DBlockEntitiesImpl
+         #Forge4Life
+         how to get forge to work
+         do // on .visual to stop forge from using fabric flywheel
+         @see com.deepdrilling.blockentities.drillhead.DDrillHeads
+         @see com.deepdrilling.DBlockEntities
          **/
         CreateBlockEntityBuilder<DrillHeadBE, CreateRegistrate> builder = DrillMod.REGISTRATE
                 .blockEntity("drill_head", DrillHeadBE::new)

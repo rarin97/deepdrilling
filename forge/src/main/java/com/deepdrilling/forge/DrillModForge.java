@@ -6,8 +6,8 @@ import com.deepdrilling.fluid.forge.FluidsImpl;
 import com.deepdrilling.worldgen.forge.OreNodeStructureImpl;
 import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.item.KineticStats;
-import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.item.TooltipModifier;
+import net.createmod.catnip.lang.FontHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -20,7 +20,7 @@ public class DrillModForge {
 
     public DrillModForge() {
         BUS = FMLJavaModLoadingContext.get().getModEventBus();
-        DrillMod.REGISTRATE.setTooltipModifierFactory(item -> new ItemDescription.Modifier(item, TooltipHelper.Palette.STANDARD_CREATE)
+        DrillMod.REGISTRATE.setTooltipModifierFactory(item -> new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
                 .andThen(TooltipModifier.mapNull(KineticStats.create(item)))
                 .andThen(TooltipModifier.mapNull(DrillHeadTooltipsForge.create(item)))
         );
@@ -35,6 +35,9 @@ public class DrillModForge {
             DPartialModels.init();
             DrillModClientForge.setupEvents(BUS);
         });
+
+        DDrillHeadsImpl.registerBlockEntity();
+        DBlockEntitiesImpl.register();
     }
 
     public static IEventBus getBus() {
