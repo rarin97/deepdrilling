@@ -22,6 +22,7 @@ public class DBlockEntities {
      I Hate Forge!!!
      @see com.deepdrilling.forge.DDrillHeadsImpl
      @see com.deepdrilling.forge.DBlockEntitiesImpl
+     @see com.deepdrilling.blockentities.drillhead.DDrillHeads
      **/
     public static final BlockEntityEntry<DrillCoreBE> DRILL_CORE = DrillMod.REGISTRATE
             .blockEntity("deep_drill", DrillCoreBE::new)

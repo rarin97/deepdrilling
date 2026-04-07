@@ -81,6 +81,7 @@ public class DDrillHeads {
         #KillForge
          @see com.deepdrilling.forge.DDrillHeadsImpl
          @see com.deepdrilling.forge.DBlockEntitiesImpl
+         @see com.deepdrilling.DBlockEntities
          **/
         CreateBlockEntityBuilder<DrillHeadBE, CreateRegistrate> builder = DrillMod.REGISTRATE
                 .blockEntity("drill_head", DrillHeadBE::new)
