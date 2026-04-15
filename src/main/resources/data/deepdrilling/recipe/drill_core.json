@@ -1,0 +1,35 @@
+{
+ "type": "create:mechanical_crafting",
+ "accept_mirrored": false,
+ "category": "misc",
+ "pattern": [
+  "CESEC",
+  "CPFPC",
+  "CBEBC",
+  " BPB "
+ ],
+ "key": {
+  "C": {
+   "item": "create:brass_casing"
+  },
+  "E": {
+   "item": "create:electron_tube"
+  },
+  "F": {
+   "item": "create:flywheel"
+  },
+  "S": {
+   "item": "create:shaft"
+  },
+  "B": {
+   "item": "create:brass_ingot"
+  },
+  "P": {
+   "item": "create:precision_mechanism"
+  }
+ },
+ "result": {
+  "id": "deepdrilling:drill_core",
+  "count": 1
+ }
+}

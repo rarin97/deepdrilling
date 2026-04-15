@@ -1,0 +1,8 @@
+{
+  "values": [
+    "deepdrilling:drill_core",
+    "deepdrilling:blank_module",
+    "deepdrilling:collection_filter",
+    "deepdrilling:sludge_pump"
+  ]
+}

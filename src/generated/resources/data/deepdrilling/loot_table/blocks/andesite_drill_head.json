@@ -1,0 +1,44 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_custom_data",
+              "ops": [
+                {
+                  "op": "replace",
+                  "source": "Damage",
+                  "target": "Damage"
+                },
+                {
+                  "op": "replace",
+                  "source": "Unbreakable",
+                  "target": "Unbreakable"
+                },
+                {
+                  "op": "replace",
+                  "source": "Enchantments",
+                  "target": "Enchantments"
+                }
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "name": "deepdrilling:andesite_drill_head"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "deepdrilling:blocks/andesite_drill_head"
+}

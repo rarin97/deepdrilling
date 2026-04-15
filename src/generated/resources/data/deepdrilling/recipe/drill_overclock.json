@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "deepdrilling:blank_module"
+    },
+    {
+      "item": "create:cogwheel"
+    },
+    {
+      "item": "create:brass_casing"
+    },
+    {
+      "item": "create:precision_mechanism"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "deepdrilling:drill_overclock"
+  }
+}

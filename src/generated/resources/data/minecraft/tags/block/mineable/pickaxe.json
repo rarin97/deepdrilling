@@ -1,0 +1,12 @@
+{
+  "values": [
+    "deepdrilling:andesite_drill_head",
+    "deepdrilling:brass_drill_head",
+    "deepdrilling:copper_drill_head",
+    "deepdrilling:drill_core",
+    "deepdrilling:blank_module",
+    "deepdrilling:collection_filter",
+    "deepdrilling:drill_overclock",
+    "deepdrilling:sludge_pump"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "block.deepdrilling.andesite_drill_head": "Andesite Drill Head",
+  "block.deepdrilling.asurine_node": "Asurine Node",
+  "block.deepdrilling.blank_module": "Blank Module",
+  "block.deepdrilling.brass_drill_head": "Brass Drill Head",
+  "block.deepdrilling.collection_filter": "Collection Filter",
+  "block.deepdrilling.copper_drill_head": "Copper Drill Head",
+  "block.deepdrilling.crimsite_node": "Crimsite Node",
+  "block.deepdrilling.drill_core": "Drill Core",
+  "block.deepdrilling.drill_overclock": "Drill Overclock",
+  "block.deepdrilling.ochrum_node": "Ochrum Node",
+  "block.deepdrilling.sludge": "Sludge",
+  "block.deepdrilling.sludge_pump": "Sludge Pump",
+  "block.deepdrilling.veridium_node": "Veridium Node",
+  "fluid.deepdrilling.sludge": "Sludge",
+  "item.deepdrilling.incomplete_brass_drill_head": "Incomplete Brass Drill Head",
+  "item.deepdrilling.incomplete_copper_drill_head": "Incomplete Copper Drill Head",
+  "item.deepdrilling.sludge_bucket": "Sludge Bucket"
+}
