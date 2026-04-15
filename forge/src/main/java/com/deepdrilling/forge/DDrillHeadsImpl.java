@@ -8,6 +8,7 @@ import com.deepdrilling.blocks.DrillHeadBlock;
 import com.simibubi.create.api.stress.BlockStressValues;
 import com.simibubi.create.foundation.data.CreateBlockEntityBuilder;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
@@ -57,6 +58,7 @@ public class DDrillHeadsImpl {
                                                              double earthWeight, double commonWeight, double rareWeight) {
         BlockEntry<DrillHeadBlock> block = DrillMod.REGISTRATE
                 .block(blockID, DrillHeadBlock::new)
+                .initialProperties(SharedProperties::stone)
                 .addLayer(() -> RenderType::cutout)
                 .properties(BlockBehaviour.Properties::noOcclusion)
                 .transform(pickaxeOnly())

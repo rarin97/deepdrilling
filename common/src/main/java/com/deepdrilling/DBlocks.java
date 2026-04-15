@@ -46,7 +46,7 @@ public class DBlocks {
 
 	public static final BlockEntry<BlankModuleBlock> BLANK_MODULE = DrillMod.REGISTRATE
 			.block("blank_module", BlankModuleBlock::new)
-			.properties(BlockBehaviour.Properties::noOcclusion)
+			.initialProperties(SharedProperties::stone)			.properties(BlockBehaviour.Properties::noOcclusion)
 			.transform(axeOrPickaxe())
 			.lang("Blank Module")
 			.blockstate((c, p) -> BlockstateHelper.existingFilePillar(c, p, "block/blank_module/block"))
@@ -62,6 +62,7 @@ public class DBlocks {
 
 	public static final BlockEntry<CollectorModuleBlock> COLLECTOR = DrillMod.REGISTRATE
 			.block("collection_filter", CollectorModuleBlock::new)
+			.initialProperties(SharedProperties::stone)
 			.properties(BlockBehaviour.Properties::noOcclusion)
 			.transform(axeOrPickaxe())
 			.lang("Collection Filter")
@@ -78,6 +79,7 @@ public class DBlocks {
 
 	public static final BlockEntry<OverclockModuleBlock> DRILL_OVERCLOCK = DrillMod.REGISTRATE
 			.block("drill_overclock", OverclockModuleBlock::new)
+			.initialProperties(SharedProperties::stone)
 			.addLayer(() -> RenderType::cutout)
 			.lang("Drill Overclock")
 			.blockstate((c, p) -> BlockstateHelper.existingFilePillar(c, p, "block/drill_overclock/block"))
@@ -97,6 +99,7 @@ public class DBlocks {
 
 	public static final BlockEntry<SludgePumpModuleBlock> SLUDGE_PUMP = DrillMod.REGISTRATE
 			.block("sludge_pump", SludgePumpModuleBlock::new)
+			.initialProperties(SharedProperties::stone)
 			.properties(BlockBehaviour.Properties::noOcclusion)
 			.lang("Sludge Pump")
 			.blockstate((c, p) -> BlockstateHelper.existingFilePillar(c, p, "block/sludge_pump/block"))
